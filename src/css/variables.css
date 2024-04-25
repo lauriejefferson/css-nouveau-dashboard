@@ -1,0 +1,16 @@
+@import url('https://api.fonts.coollabs.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import "https://unpkg.com/open-props";
+
+:root {
+
+    /* Base Design Tokens */
+    --font-sans: "Raleway", sans-serif;
+    /* Overwrites Open Props font */
+    --color-jet: #2d2d2d;
+    --color-oxford-blue: #14213d;
+    --color-orange-web: #fca311;
+    --color-platinum: #e5e5e5;
+
+    /* Semantic Design Tokens */
+
+}
