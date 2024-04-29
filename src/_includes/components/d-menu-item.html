@@ -1,0 +1,25 @@
+<template shadowrootmode="open">
+  <style>
+    :host {
+      display: inline-flex;
+      justify-content: space-between;
+      gap: 1em;
+      cursor: pointer;
+    }
+
+    :host(:hover) {
+      background-color: var(--color-orange-web);
+    }
+
+    ::slotted(a) {
+      text-decoration: none;
+    }
+
+    slot {
+      display: block;
+    }
+  </style>
+  <slot name="icon"></slot>
+  <slot></slot>
+</template>
+<script type="module"></script>
