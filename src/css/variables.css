@@ -10,7 +10,47 @@
     --color-oxford-blue: #14213d;
     --color-orange-web: #fca311;
     --color-platinum: #e5e5e5;
+    --color-malachite: #17DF43;
+    --color-blue: blue;
+    --color-red: red;
+    --color-gray: gray;
+    --color-white: white;
+    --color-screamin-green: #A8F67A;
+    --color-electric-blue: #7CE9F0;
+    --color-sandy-brown: #FCAC4F;
+    --color-timberwolf: #d7d7d7;
+    --color-green: green;
+
 
     /* Semantic Design Tokens */
-
+    --body-font: var(--font-sans);
+    --body-background: var(--color-platinum);
+    --font-scale: 105%;
+    --sidebar-background: var(--color-oxford-blue);
+    --sidebar-selected-background: var(--color-orange-web);
+    --title-color: var(--color-jet);
+    --title-font-size: var(--font-size-5);
+    --canvas-background: var(--color-platinum);
+    --surface-background: var(--stone-0);
+    --accent-color: var(--color-orange-web);
+    --sales-background: var(--color-oxford-blue);
+    --sales-text-color: var(--color-platinum);
+    --subscription-background: var(--color-white; );
+    --subscriptions-text-color: var(--color-jet);
+    --tasks-card-background: var(--color-white);
+    --tasks-checked-text-color: var(--color-malachite);
+    --tasks-unchecked-text-color: var(--color-gray);
+    --fluid-sectioning: var(--size-fluid-2);
+    --customer-approved-color: var(--color-malachite);
+    --customer-pending-color: var(--color-blue);
+    --customer-rejected-color: var(--color-red);
+    --subscription-new-color: var(--color-screamin-green);
+    --subscription-returning-color: var(--color-electric-blue);
+    --subscription-unsubscribed-color: var(--color-sandy-brown);
+    --sidebar-text-color: var(--color-white);
+    --sidebar-title-color: var(--color-white);
+    --search-background: var(--color-timberwolf);
+    --arrow-up: var(--color-green);
+    --arrow-down: var(--color-red);
+    --navbar-background: var(--color-white);
 }
