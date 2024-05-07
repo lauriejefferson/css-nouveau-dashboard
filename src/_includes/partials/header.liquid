@@ -2,14 +2,13 @@
     <div class="left">
       <h1 class="title">{{ title }}</h1>  
     </div>
-    <div class="right">
-       <search>
+    <search>
         <form action="#">
             <input type="search" id="docs" name="docs">
-            <d-icon>
-                {% include "svgs/search.svg" %}
-            </d-icon>
+            {% comment %} <d-icon>
+                {% include 'svgs/search.svg' %}
+            </d-icon> {% endcomment %}
         </form>
-       </search> 
-    </div>
+    </search> 
+ 
 </header>

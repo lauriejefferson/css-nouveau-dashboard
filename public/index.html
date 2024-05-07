@@ -4,17 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self';" />
-    <link rel="stylesheet" href="{{ '/css/index.css' | url }}">
+    <link rel="stylesheet" href="/css/index.css">
     <title>CSS Nouveau Dashboard</title>
 </head>
 <body>
-   {% component_dsd "d-grid" %} 
-   {% include "./partials/header.liquid" %}
+   <template shadowrootmode="open">
+  <link rel="stylesheet" href="/css/d-grid-layout.css" />
+  <slot name="title"></slot>
+  <slot></slot>
+  <slot name="sidebar"></slot>
+  <slot name="footer"></slot>
+</template>
+ 
+   <header slot="title">
+    <div class="left">
+      <h1 class="title">Overview</h1>  
+    </div>
+    <search>
+        <form action="#">
+            <input type="search" id="docs" name="docs">
+            
+        </form>
+    </search> 
+ 
+</header>
    <main id="content">
-    {{ content  }}
+    
+<h1>Business Dashboad</h1>
    </main>
-   {% include "./partials/sidebar.liquid" %}
-   {% include "./partials/footer.liquid" %}
+   <div slot="sidebar">
+    <h1 class="sidebar-title">Dashboard</h1>
+</div>
+   <footer slot="footer">
+    <p>Copyright 2024 CSS Nouveau Dashboard</p>
+</footer>
     <a slot="skip-to-content" href="#content">
         Skip to content
     </a>
