@@ -35,11 +35,12 @@
     --accent-color: var(--color-orange-web);
     --sales-background: var(--color-oxford-blue);
     --sales-color: var(--color-platinum);
+    --sales-radius: var(--radius-3);
     --subscription-background: var(--color-white; );
-    --subscriptions-text-color: var(--color-jet);
-    --tasks-card-background: var(--color-white);
-    --tasks-checked-text-color: var(--color-malachite);
-    --tasks-unchecked-text-color: var(--color-gray);
+    --subscriptions-color: var(--color-jet);
+    --tasks-background: var(--color-white);
+    --tasks-checked-color: var(--color-malachite);
+    --tasks-unchecked-color: var(--color-gray);
     --fluid-sectioning: var(--size-fluid-2);
     --customer-approved-color: var(--color-malachite);
     --customer-pending-color: var(--color-blue);
@@ -48,7 +49,6 @@
     --subscription-returning-color: var(--color-electric-blue);
     --subscription-unsubscribed-color: var(--color-sandy-brown);
     --sidebar-color: var(--color-white);
-    --sidebar-title-color: var(--color-white);
     --search-background: var(--color-timberwolf);
     --arrow-up: var(--color-green);
     --arrow-down: var(--color-red);

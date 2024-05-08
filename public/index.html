@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self';" />
+    
     <link rel="stylesheet" href="/css/index.css">
     <title>CSS Nouveau Dashboard</title>
 </head>
@@ -30,7 +30,142 @@
 </header>
    <main id="content">
     
-<h1>Business Dashboad</h1>
+<d-dashboard>
+ <d-dashboard-cell>
+
+
+<d-cards>
+<template shadowrootmode="open">
+  <style>
+    :host {
+      --spacing: 0.25em;
+      --card-spacing: 1em 3em;
+
+      display: flex;
+      gap: var(--spacing);
+    }
+
+    ::slotted(d-card) {
+      padding: var(--card-spacing);
+    }
+  </style>
+  <slot></slot>
+</template>
+
+
+<d-card>
+    <template shadowrootmode="open">
+  <style>
+    :host {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      margin-inline: auto;
+      background: var(--sales-background);
+      color: var(--sales-color);
+      border-radius: var(--sales-radius);
+    }
+
+    slot[name='title'] {
+      font-size: var(--font-size-1);
+    }
+
+    slot[name='total'] {
+      font-size: var(--font-size-5);
+    }
+
+    slot[name='stats'] {
+      font-size: var(--font-size-2);
+    }
+  </style>
+  <slot name="title"></slot>
+  <slot name="total"></slot>
+  <slot name="stats"></slot>
+</template>
+
+    <h1 slot="title">Total Sales</h1>
+    <p slot="total">$500,000</p>
+    <div slot="stats">20%</div>
+</d-card>
+<d-card>
+    <template shadowrootmode="open">
+  <style>
+    :host {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      margin-inline: auto;
+      background: var(--sales-background);
+      color: var(--sales-color);
+      border-radius: var(--sales-radius);
+    }
+
+    slot[name='title'] {
+      font-size: var(--font-size-1);
+    }
+
+    slot[name='total'] {
+      font-size: var(--font-size-5);
+    }
+
+    slot[name='stats'] {
+      font-size: var(--font-size-2);
+    }
+  </style>
+  <slot name="title"></slot>
+  <slot name="total"></slot>
+  <slot name="stats"></slot>
+</template>
+
+    <h1 slot="title">Total Customers</h1>
+    <p slot="total">160,000</p>
+    <div slot="stats">10%</div>
+</d-card>
+<d-card>
+    <template shadowrootmode="open">
+  <style>
+    :host {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      margin-inline: auto;
+      background: var(--sales-background);
+      color: var(--sales-color);
+      border-radius: var(--sales-radius);
+    }
+
+    slot[name='title'] {
+      font-size: var(--font-size-1);
+    }
+
+    slot[name='total'] {
+      font-size: var(--font-size-5);
+    }
+
+    slot[name='stats'] {
+      font-size: var(--font-size-2);
+    }
+  </style>
+  <slot name="title"></slot>
+  <slot name="total"></slot>
+  <slot name="stats"></slot>
+</template>
+
+    <h1 slot="title">Unsubscribes</h1>
+    <p slot="total">250</p>
+    <div slot="stats">7%</div>
+</d-card>
+</d-cards>
+
+</d-dashboard-cell>
+</d-dashboard>
+
+<d-dashboard>
+    
+</d-dashboard>
    </main>
    <div slot="sidebar">
     <h1 class="sidebar-title">Dashboard</h1>

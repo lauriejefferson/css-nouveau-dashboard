@@ -1,0 +1,22 @@
+d-icon {
+    --icon-size: 1em;
+    display: inline-block;
+    height: var(--icon-size);
+}
+
+d-icon svg {
+    display: block;
+    height: 100%;
+    width: auto;
+    margin: 0;
+}
+
+d-dashboard {
+    --min-cell-size: 300px;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(var(--min-cell-size), 1fr));
+    gap: var(--size-5);
+
+    margin-block-end: var(--size-5);
+}

@@ -1,0 +1,29 @@
+<template shadowrootmode="open">
+  <style>
+    :host {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      margin-inline: auto;
+      background: var(--sales-background);
+      color: var(--sales-color);
+      border-radius: var(--sales-radius);
+    }
+
+    slot[name='title'] {
+      font-size: var(--font-size-1);
+    }
+
+    slot[name='total'] {
+      font-size: var(--font-size-5);
+    }
+
+    slot[name='stats'] {
+      font-size: var(--font-size-2);
+    }
+  </style>
+  <slot name="title"></slot>
+  <slot name="total"></slot>
+  <slot name="stats"></slot>
+</template>
