@@ -1,3 +1,44 @@
-<div slot="sidebar">
+<nav slot="sidebar">
     <h1 class="sidebar-title">Dashboard</h1>
-</div>
+
+    <d-menu role="list">
+        {% component_dsd "d-menu" %}
+
+        <d-menu-item role="listitem" nosuffix>
+            {% component_dsd "d-menu-item" %}
+            <a href="/">Overview</a>
+            <d-icon slot="prefix">
+                {% include "svgs/home-outline.svg" %}
+            </d-icon>
+        </d-menu-item>
+        <d-menu-item role="listitem" nosuffix>
+            {% component_dsd "d-menu-item" %}
+            <a href="/">Sales</a>
+            <d-icon slot="prefix">
+                {% include "svgs/bar-chart-outline.svg" %}
+            </d-icon>
+        </d-menu-item>
+        <d-menu-item role="listitem" nosuffix>
+            {% component_dsd "d-menu-item" %}
+            <a href="/">Customers</a>
+            <d-icon slot="prefix">
+                {% include "svgs/person-outline.svg" %}
+            </d-icon>
+        </d-menu-item>
+        <d-menu-item role="listitem" nosuffix>
+            {% component_dsd "d-menu-item" %}
+            <a href="/">Notifications</a>
+            <d-icon slot="prefix">
+                {% include "svgs/notifications-outline.svg" %}
+            </d-icon>
+        </d-menu-item>
+    </d-menu>
+
+    <d-footer role="footer" nosuffix>
+        {% component_dsd "d-footer"%}
+        <a href="/">Log Out</a>
+        <d-icon slot="prefix">
+            {% include "svgs/log-out-outline.svg" %}
+        </d-icon>
+    </d-footer>
+</nav>

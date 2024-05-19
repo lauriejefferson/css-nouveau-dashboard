@@ -1,8 +1,9 @@
 <template shadowrootmode="open">
   <style>
     :host {
-      display: inline-flex;
+      display: flex;
       justify-content: space-between;
+      align-items: center;
       gap: 1em;
       cursor: pointer;
     }
@@ -15,11 +16,29 @@
       text-decoration: none;
     }
 
+    ::slotted(d-icon) {
+      --icon-size: 1.5em;
+      margin-top: 0.5em;
+    }
+
     slot {
       display: block;
     }
+
+    slot:not([name]) {
+      flex-grow: 1;
+    }
+
+    :host([noprefix]) slot[name='prefix'] {
+      display: none;
+    }
+
+    :host([nosuffix]) slot[name='suffix'] {
+      display: none;
+    }
   </style>
-  <slot name="icon"></slot>
+  <slot name="prefix"></slot>
   <slot></slot>
+  <slot name="suffix"></slot>
 </template>
 <script type="module"></script>

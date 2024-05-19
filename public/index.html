@@ -164,12 +164,731 @@
 </d-dashboard>
 
 <d-dashboard>
+    <d-dashboard-cell>
+    <h2>Subscriptions</h2>
+
+    <d-cell>
+        <template shadowrootmode="open">
+  <style>
+    :host {
+      display: grid;
+      gap: 1em;
+      padding: var(--cell-spacing);
+      height: 100%;
+      background: var(--cell-background);
+    }
+  </style>
+  <slot></slot>
+</template>
+
+
+    <d-chart type="pie" style="max-height: 450px">
+        <template shadowrootmode="open">
+  <div>
+    <canvas part="chart"></canvas>
+  </div>
+
+  <style>
+    :host {
+      display: flex;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    div {
+      display: flex;
+      justify-content: center;
+      position: relative;
+      width: 100%;
+    }
+  </style>
+</template>
+
+<script type="module">
+  import 'https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js';
+  // import 'https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js';
+
+  if (!customElements.get('d-chart')) {
+    customElements.define(
+      'd-chart',
+      class extends HTMLElement {
+        backgroundColor = [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(255, 159, 64, 0.2)',
+          'rgba(255, 205, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(201, 203, 207, 0.2)',
+        ];
+        borderColor = [
+          'rgb(255, 99, 132)',
+          'rgb(255, 159, 64)',
+          'rgb(255, 205, 86)',
+          'rgb(75, 192, 192)',
+          'rgb(54, 162, 235)',
+          'rgb(153, 102, 255)',
+          'rgb(201, 203, 207)',
+        ];
+
+        connectedCallback() {
+          this.dispatchEvent(
+            new CustomEvent('request-config', {
+              detail: {
+                callback: (config) => {
+                  this.chart = new Chart(
+                    this.shadowRoot.querySelector("[part='chart']"),
+                    {
+                      type: this.getAttribute('type') || 'bar',
+                      options: { ...(config.options || {}) },
+                      data: config.data,
+                    }
+                  );
+                },
+              },
+            })
+          );
+
+          window.addEventListener('resize', this);
+        }
+
+        disconnectedCallback() {
+          window.removeEventListener('resize', this);
+          this.chart.destroy();
+          this.chart = null;
+        }
+
+        handleEvent() {
+          clearTimeout(this.debounce);
+          this.debounce = setTimeout(() => {
+            if (this.getAttribute('type') !== 'doughnut') {
+              this.chart.resize();
+            }
+          }, 50);
+        }
+      }
+    );
+  }
+</script>
+
+  
+
+    <script>
+        document.currentScript.parentNode.addEventListener("request-config", e => {
+            const callback = e.detail.callback
+            callback({
+                options: {
+                    aspectRatio: 2.5,
+                },
+                data: {
+                    labels: ['New', 'Returning', 'Unsubscribed'],
+                    datasets: [
+                        {
+                            label: "Subscriptions",
+                            data: ['1000', '500', '250'],
+                            backgroundColor: e.target.defaultBarColors,
+                            borderColor: e.target.defaultBarBorders,
+                            borderWidth: 1
+                        }
+                    ]
+                }
+            })
+        })
+  
+    </script>
+    </d-chart>
+    </d-cell>
+   
+</d-dashboard-cell>
+<d-dashdboard-cell>
+    <h2>Tasks</h2>
+<d-cell>
     
+    <template shadowrootmode="open">
+  <style>
+    :host {
+      display: grid;
+      gap: 1em;
+      padding: var(--cell-spacing);
+      height: 100%;
+      background: var(--cell-background);
+    }
+  </style>
+  <slot></slot>
+</template>
+
+
+    <d-tasks>
+        <template shadowrootmode="open">
+  <style>
+    :host {
+      display: flex;
+      flex-direction: column;
+    }
+  </style>
+  <ul>
+    <slot></slot>
+  </ul>
+</template>
+
+        <d-task-item>
+            <template shadowrootmode="open">
+  <style>
+    :host {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 0.25em;
+      margin-top: 1em;
+      width: 100%;
+    }
+
+    li {
+      list-style-type: none;
+    }
+
+    li label {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1em;
+    }
+
+    ::slotted(p) {
+      margin: 0;
+    }
+
+    input[type='checkbox'] {
+      background-color: var(--color-white);
+      margin: 0;
+      width: 1em;
+      border: 0.15em solid var(--color-gray);
+      border-radius: 0.15em;
+      font: inherit;
+      color: currentColor;
+      transform: scale(1.8);
+      opacity: 0.5;
+    }
+
+    input[type='text'] {
+      border: 0.15em solid var(--color-gray);
+      border-radius: 0.15em;
+      opacity: 0.2;
+      padding: 0.2em;
+    }
+  </style>
+  <li>
+    <label for="listitem">
+      <input type="checkbox" />
+      <slot name="taskitem" />
+    </label>
+  </li>
+</template>
+
+            <p slot="taskitem">Get Marketing Report</p>
+        </d-task-item>
+        <d-task-item>
+            <template shadowrootmode="open">
+  <style>
+    :host {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 0.25em;
+      margin-top: 1em;
+      width: 100%;
+    }
+
+    li {
+      list-style-type: none;
+    }
+
+    li label {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1em;
+    }
+
+    ::slotted(p) {
+      margin: 0;
+    }
+
+    input[type='checkbox'] {
+      background-color: var(--color-white);
+      margin: 0;
+      width: 1em;
+      border: 0.15em solid var(--color-gray);
+      border-radius: 0.15em;
+      font: inherit;
+      color: currentColor;
+      transform: scale(1.8);
+      opacity: 0.5;
+    }
+
+    input[type='text'] {
+      border: 0.15em solid var(--color-gray);
+      border-radius: 0.15em;
+      opacity: 0.2;
+      padding: 0.2em;
+    }
+  </style>
+  <li>
+    <label for="listitem">
+      <input type="checkbox" />
+      <slot name="taskitem" />
+    </label>
+  </li>
+</template>
+
+            <p slot="taskitem">Get Sales Report</p>
+        </d-task-item>
+        <d-task-item>
+            <template shadowrootmode="open">
+  <style>
+    :host {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 0.25em;
+      margin-top: 1em;
+      width: 100%;
+    }
+
+    li {
+      list-style-type: none;
+    }
+
+    li label {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1em;
+    }
+
+    ::slotted(p) {
+      margin: 0;
+    }
+
+    input[type='checkbox'] {
+      background-color: var(--color-white);
+      margin: 0;
+      width: 1em;
+      border: 0.15em solid var(--color-gray);
+      border-radius: 0.15em;
+      font: inherit;
+      color: currentColor;
+      transform: scale(1.8);
+      opacity: 0.5;
+    }
+
+    input[type='text'] {
+      border: 0.15em solid var(--color-gray);
+      border-radius: 0.15em;
+      opacity: 0.2;
+      padding: 0.2em;
+    }
+  </style>
+  <li>
+    <label for="listitem">
+      <input type="checkbox" />
+      <slot name="taskitem" />
+    </label>
+  </li>
+</template>
+
+            <p slot="taskitem">Mobile App Design</p>
+        </d-task-item>
+        <d-task-item>
+            <template shadowrootmode="open">
+  <style>
+    :host {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 0.25em;
+      margin-top: 1em;
+      width: 100%;
+    }
+
+    li {
+      list-style-type: none;
+    }
+
+    li label {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1em;
+    }
+
+    ::slotted(p) {
+      margin: 0;
+    }
+
+    input[type='checkbox'] {
+      background-color: var(--color-white);
+      margin: 0;
+      width: 1em;
+      border: 0.15em solid var(--color-gray);
+      border-radius: 0.15em;
+      font: inherit;
+      color: currentColor;
+      transform: scale(1.8);
+      opacity: 0.5;
+    }
+
+    input[type='text'] {
+      border: 0.15em solid var(--color-gray);
+      border-radius: 0.15em;
+      opacity: 0.2;
+      padding: 0.2em;
+    }
+  </style>
+  <li>
+    <label for="listitem">
+      <input type="checkbox" />
+      <slot name="taskitem" />
+    </label>
+  </li>
+</template>
+
+            <p slot="taskitem">New Website Design</p>
+        </d-task-item>
+        <d-task-item>
+            <template shadowrootmode="open">
+  <style>
+    :host {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 0.25em;
+      margin-top: 1em;
+      width: 100%;
+    }
+
+    li {
+      list-style-type: none;
+    }
+
+    li label {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1em;
+    }
+
+    ::slotted(p) {
+      margin: 0;
+    }
+
+    input[type='checkbox'] {
+      background-color: var(--color-white);
+      margin: 0;
+      width: 1em;
+      border: 0.15em solid var(--color-gray);
+      border-radius: 0.15em;
+      font: inherit;
+      color: currentColor;
+      transform: scale(1.8);
+      opacity: 0.5;
+    }
+
+    input[type='text'] {
+      border: 0.15em solid var(--color-gray);
+      border-radius: 0.15em;
+      opacity: 0.2;
+      padding: 0.2em;
+    }
+  </style>
+  <li>
+    <label for="listitem">
+      <input type="checkbox" />
+      <slot name="taskitem" />
+    </label>
+  </li>
+</template>
+
+            <p slot="taskitem">SEO Marketing</p>
+        </d-task-item>
+    </d-tasks>
+</d-cell>
+</d-dashdboard-cell>
 </d-dashboard>
    </main>
-   <div slot="sidebar">
+   <nav slot="sidebar">
     <h1 class="sidebar-title">Dashboard</h1>
-</div>
+
+    <d-menu role="list">
+        <template shadowrootmode="open">
+  <style>
+    :host {
+      display: flex;
+      flex-direction: column;
+    }
+  </style>
+  <slot></slot>
+</template>
+
+
+        <d-menu-item role="listitem" nosuffix>
+            <template shadowrootmode="open">
+  <style>
+    :host {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1em;
+      cursor: pointer;
+    }
+
+    :host(:hover) {
+      background-color: var(--color-orange-web);
+    }
+
+    ::slotted(a) {
+      text-decoration: none;
+    }
+
+    ::slotted(d-icon) {
+      --icon-size: 1.5em;
+      margin-top: 0.5em;
+    }
+
+    slot {
+      display: block;
+    }
+
+    slot:not([name]) {
+      flex-grow: 1;
+    }
+
+    :host([noprefix]) slot[name='prefix'] {
+      display: none;
+    }
+
+    :host([nosuffix]) slot[name='suffix'] {
+      display: none;
+    }
+  </style>
+  <slot name="prefix"></slot>
+  <slot></slot>
+  <slot name="suffix"></slot>
+</template>
+<script type="module"></script>
+
+            <a href="/">Overview</a>
+            <d-icon slot="prefix">
+                <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path d="M80 212v236a16 16 0 0016 16h96V328a24 24 0 0124-24h80a24 24 0 0124 24v136h96a16 16 0 0016-16V212" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><path d="M480 256L266.89 52c-5-5.28-16.69-5.34-21.78 0L32 256M400 179V64h-48v69" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/></svg>
+            </d-icon>
+        </d-menu-item>
+        <d-menu-item role="listitem" nosuffix>
+            <template shadowrootmode="open">
+  <style>
+    :host {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1em;
+      cursor: pointer;
+    }
+
+    :host(:hover) {
+      background-color: var(--color-orange-web);
+    }
+
+    ::slotted(a) {
+      text-decoration: none;
+    }
+
+    ::slotted(d-icon) {
+      --icon-size: 1.5em;
+      margin-top: 0.5em;
+    }
+
+    slot {
+      display: block;
+    }
+
+    slot:not([name]) {
+      flex-grow: 1;
+    }
+
+    :host([noprefix]) slot[name='prefix'] {
+      display: none;
+    }
+
+    :host([nosuffix]) slot[name='suffix'] {
+      display: none;
+    }
+  </style>
+  <slot name="prefix"></slot>
+  <slot></slot>
+  <slot name="suffix"></slot>
+</template>
+<script type="module"></script>
+
+            <a href="/">Sales</a>
+            <d-icon slot="prefix">
+                <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path d="M32 32v432a16 16 0 0016 16h432" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><rect x="96" y="224" width="80" height="192" rx="20" ry="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><rect x="240" y="176" width="80" height="240" rx="20" ry="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><rect x="383.64" y="112" width="80" height="304" rx="20" ry="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/></svg>
+            </d-icon>
+        </d-menu-item>
+        <d-menu-item role="listitem" nosuffix>
+            <template shadowrootmode="open">
+  <style>
+    :host {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1em;
+      cursor: pointer;
+    }
+
+    :host(:hover) {
+      background-color: var(--color-orange-web);
+    }
+
+    ::slotted(a) {
+      text-decoration: none;
+    }
+
+    ::slotted(d-icon) {
+      --icon-size: 1.5em;
+      margin-top: 0.5em;
+    }
+
+    slot {
+      display: block;
+    }
+
+    slot:not([name]) {
+      flex-grow: 1;
+    }
+
+    :host([noprefix]) slot[name='prefix'] {
+      display: none;
+    }
+
+    :host([nosuffix]) slot[name='suffix'] {
+      display: none;
+    }
+  </style>
+  <slot name="prefix"></slot>
+  <slot></slot>
+  <slot name="suffix"></slot>
+</template>
+<script type="module"></script>
+
+            <a href="/">Customers</a>
+            <d-icon slot="prefix">
+                <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path d="M344 144c-3.92 52.87-44 96-88 96s-84.15-43.12-88-96c-4-55 35-96 88-96s92 42 88 96z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><path d="M256 304c-87 0-175.3 48-191.64 138.6C62.39 453.52 68.57 464 80 464h352c11.44 0 17.62-10.48 15.65-21.4C431.3 352 343 304 256 304z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/></svg>
+            </d-icon>
+        </d-menu-item>
+        <d-menu-item role="listitem" nosuffix>
+            <template shadowrootmode="open">
+  <style>
+    :host {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1em;
+      cursor: pointer;
+    }
+
+    :host(:hover) {
+      background-color: var(--color-orange-web);
+    }
+
+    ::slotted(a) {
+      text-decoration: none;
+    }
+
+    ::slotted(d-icon) {
+      --icon-size: 1.5em;
+      margin-top: 0.5em;
+    }
+
+    slot {
+      display: block;
+    }
+
+    slot:not([name]) {
+      flex-grow: 1;
+    }
+
+    :host([noprefix]) slot[name='prefix'] {
+      display: none;
+    }
+
+    :host([nosuffix]) slot[name='suffix'] {
+      display: none;
+    }
+  </style>
+  <slot name="prefix"></slot>
+  <slot></slot>
+  <slot name="suffix"></slot>
+</template>
+<script type="module"></script>
+
+            <a href="/">Notifications</a>
+            <d-icon slot="prefix">
+                <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path d="M427.68 351.43C402 320 383.87 304 383.87 217.35 383.87 138 343.35 109.73 310 96c-4.43-1.82-8.6-6-9.95-10.55C294.2 65.54 277.8 48 256 48s-38.21 17.55-44 37.47c-1.35 4.6-5.52 8.71-9.95 10.53-33.39 13.75-73.87 41.92-73.87 121.35C128.13 304 110 320 84.32 351.43 73.68 364.45 83 384 101.61 384h308.88c18.51 0 27.77-19.61 17.19-32.57zM320 384v16a64 64 0 01-128 0v-16" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/></svg>
+            </d-icon>
+        </d-menu-item>
+    </d-menu>
+
+    <d-footer role="footer" nosuffix>
+        <template shadowrootmode="open">
+  <style>
+    :host {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1em;
+      cursor: pointer;
+    }
+
+    :host(:hover) {
+      background-color: var(--color-orange-web);
+    }
+
+    ::slotted(a) {
+      text-decoration: none;
+    }
+
+    ::slotted(d-icon) {
+      --icon-size: 1.5em;
+      margin-top: 0.5em;
+    }
+
+    slot {
+      display: block;
+    }
+
+    slot:not([name]) {
+      flex-grow: 1;
+    }
+
+    :host([noprefix]) slot[name='prefix'] {
+      display: none;
+    }
+
+    :host([nosuffix]) slot[name='suffix'] {
+      display: none;
+    }
+  </style>
+  <slot name="prefix"></slot>
+  <slot></slot>
+  <slot name="suffix"></slot>
+</template>
+<script type="module"></script>
+
+        <a href="/">Log Out</a>
+        <d-icon slot="prefix">
+            <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path d="M304 336v40a40 40 0 01-40 40H104a40 40 0 01-40-40V136a40 40 0 0140-40h152c22.09 0 48 17.91 48 40v40M368 336l80-80-80-80M176 256h256" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/></svg>
+        </d-icon>
+    </d-footer>
+</nav>
    <footer slot="footer">
     <p>Copyright 2024 CSS Nouveau Dashboard</p>
 </footer>
