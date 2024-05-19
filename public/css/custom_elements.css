@@ -12,7 +12,7 @@ d-icon svg {
 }
 
 d-dashboard {
-    --min-cell-size: 300px;
+    --min-cell-size: 500px;
 
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(var(--min-cell-size), 1fr));

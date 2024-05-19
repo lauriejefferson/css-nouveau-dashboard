@@ -33,7 +33,7 @@ slot:not([name]) {
 
 ::slotted(main) {
     background: var(--body-background);
-    height: 100vh;
+    height: 100%;
     padding: var(--main-spacing);
     padding-inline-start: var(--interior-spacing);
 }
