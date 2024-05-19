@@ -45,6 +45,7 @@
     --customer-approved-color: var(--color-malachite);
     --customer-pending-color: var(--color-blue);
     --customer-rejected-color: var(--color-red);
+    --new-customers-background: var(--color-white);
     --subscription-new-color: var(--color-screamin-green);
     --subscription-returning-color: var(--color-electric-blue);
     --subscription-unsubscribed-color: var(--color-sandy-brown);
@@ -53,4 +54,6 @@
     --arrow-up: var(--color-green);
     --arrow-down: var(--color-red);
     --navbar-background: var(--color-white);
+    --cell-background: var(--color-white);
+    --cell-spacing: var(--size-3);
 }

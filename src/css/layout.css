@@ -1,4 +1,14 @@
+nav[slot="sidebar"] {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
 nav[slot="sidebar"] d-menu-item {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
+}
+
+nav[slot="sidebar"] d-footer {
+    margin-top: auto;
 }

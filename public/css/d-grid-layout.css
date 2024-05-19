@@ -59,6 +59,6 @@ slot[name="title"] {
 
 slot[name="footer"] {
     grid-area: footer;
-    background: var(--navbar-background);
+    background: var(--canvas-background);
     padding-inline: calc(var(--interior-spacing) + var(--main-spacing));
 }
