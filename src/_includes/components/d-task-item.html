@@ -1,0 +1,52 @@
+<template shadowrootmode="open">
+  <style>
+    :host {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 0.25em;
+      margin-top: 1em;
+      width: 100%;
+    }
+
+    li {
+      list-style-type: none;
+    }
+
+    li label {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1em;
+    }
+
+    ::slotted(p) {
+      margin: 0;
+    }
+
+    input[type='checkbox'] {
+      background-color: var(--color-white);
+      margin: 0;
+      width: 1em;
+      border: 0.15em solid var(--color-gray);
+      border-radius: 0.15em;
+      font: inherit;
+      color: currentColor;
+      transform: scale(1.8);
+      opacity: 0.5;
+    }
+
+    input[type='text'] {
+      border: 0.15em solid var(--color-gray);
+      border-radius: 0.15em;
+      opacity: 0.2;
+      padding: 0.2em;
+    }
+  </style>
+  <li>
+    <label for="listitem">
+      <input type="checkbox" />
+      <slot name="taskitem" />
+    </label>
+  </li>
+</template>

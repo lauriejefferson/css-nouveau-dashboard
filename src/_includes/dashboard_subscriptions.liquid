@@ -1,0 +1,68 @@
+<d-dashboard-cell>
+    <h2>Subscriptions</h2>
+
+    <d-cell>
+        {% component_dsd "d-cell" %}
+
+    <d-chart type="pie" style="max-height: 450px">
+        {% component_dsd "d-chart" %}
+  
+
+    <script>
+        document.currentScript.parentNode.addEventListener("request-config", e => {
+            const callback = e.detail.callback
+            callback({
+                options: {
+                    aspectRatio: 2.5,
+                },
+                data: {
+                    labels: ['New', 'Returning', 'Unsubscribed'],
+                    datasets: [
+                        {
+                            label: "Subscriptions",
+                            data: ['1000', '500', '250'],
+                            backgroundColor: e.target.defaultBarColors,
+                            borderColor: e.target.defaultBarBorders,
+                            borderWidth: 1
+                        }
+                    ]
+                }
+            })
+        })
+  
+    </script>
+    </d-chart>
+    </d-cell>
+   
+</d-dashboard-cell>
+<d-dashdboard-cell>
+    <h2>Tasks</h2>
+<d-cell>
+    
+    {% component_dsd "d-cell" %}
+
+    <d-tasks>
+        {% component_dsd "d-tasks" %}
+        <d-task-item>
+            {%component_dsd "d-task-item"%}
+            <p slot="taskitem">Get Marketing Report</p>
+        </d-task-item>
+        <d-task-item>
+            {%component_dsd "d-task-item"%}
+            <p slot="taskitem">Get Sales Report</p>
+        </d-task-item>
+        <d-task-item>
+            {%component_dsd "d-task-item"%}
+            <p slot="taskitem">Mobile App Design</p>
+        </d-task-item>
+        <d-task-item>
+            {%component_dsd "d-task-item"%}
+            <p slot="taskitem">New Website Design</p>
+        </d-task-item>
+        <d-task-item>
+            {%component_dsd "d-task-item"%}
+            <p slot="taskitem">SEO Marketing</p>
+        </d-task-item>
+    </d-tasks>
+</d-cell>
+</d-dashdboard-cell>
