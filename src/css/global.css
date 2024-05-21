@@ -75,3 +75,12 @@ textarea:not([rows]) {
 :target {
     scroll-margin-block: 5ex;
 }
+
+a {
+    color: var(--color-white);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration-color: var(--color-orange-web);
+}

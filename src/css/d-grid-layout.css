@@ -42,6 +42,7 @@ slot[name="sidebar"] {
     grid-area: sidebar;
     color: var(--sidebar-color);
     background: var(--sidebar-background);
+    width: 100%;
 }
 
 slot[name="title"] {

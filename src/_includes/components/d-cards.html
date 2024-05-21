@@ -1,15 +1,15 @@
 <template shadowrootmode="open">
   <style>
     :host {
-      --spacing: 0.25em;
-      --card-spacing: 1em 3em;
-
+      --spacing: 0.5em;
+      --slot-spacing: 2em;
       display: flex;
       gap: var(--spacing);
     }
 
-    ::slotted(d-card) {
-      padding: var(--card-spacing);
+    ::slotted(*) {
+      width: 100%;
+      padding: var(--slot-spacing);
     }
   </style>
   <slot></slot>

@@ -18,7 +18,7 @@
  
    <header slot="title">
     <div class="left">
-      <h1 class="title">Overview</h1>  
+      <h1 class="title">Business Dashboard</h1>  
     </div>
     <search>
         <form action="#">
@@ -38,15 +38,15 @@
 <template shadowrootmode="open">
   <style>
     :host {
-      --spacing: 0.25em;
-      --card-spacing: 1em 3em;
-
+      --spacing: 0.5em;
+      --slot-spacing: 2em;
       display: flex;
       gap: var(--spacing);
     }
 
-    ::slotted(d-card) {
-      padding: var(--card-spacing);
+    ::slotted(*) {
+      width: 100%;
+      padding: var(--slot-spacing);
     }
   </style>
   <slot></slot>
@@ -59,12 +59,13 @@
     :host {
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: flex-start;
       margin-inline: auto;
       background: var(--sales-background);
       color: var(--sales-color);
       border-radius: var(--sales-radius);
+      padding: var(--card-spacing);
     }
 
     slot[name='title'] {
@@ -94,12 +95,13 @@
     :host {
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: flex-start;
       margin-inline: auto;
       background: var(--sales-background);
       color: var(--sales-color);
       border-radius: var(--sales-radius);
+      padding: var(--card-spacing);
     }
 
     slot[name='title'] {
@@ -129,12 +131,13 @@
     :host {
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: flex-start;
       margin-inline: auto;
       background: var(--sales-background);
       color: var(--sales-color);
       border-radius: var(--sales-radius);
+      padding: var(--card-spacing);
     }
 
     slot[name='title'] {
@@ -165,9 +168,8 @@
 
 <d-dashboard>
     <d-dashboard-cell>
-    <h2>Subscriptions</h2>
-
     <d-cell>
+        <h2>Subscriptions</h2>
         <template shadowrootmode="open">
   <style>
     :host {
@@ -176,6 +178,7 @@
       padding: var(--cell-spacing);
       height: 100%;
       background: var(--cell-background);
+      border-radius: var(--radius-3);
     }
   </style>
   <slot></slot>
@@ -301,9 +304,9 @@
    
 </d-dashboard-cell>
 <d-dashdboard-cell>
-    <h2>Tasks</h2>
-<d-cell>
     
+<d-cell>
+    <h2>Tasks</h2>
     <template shadowrootmode="open">
   <style>
     :host {
@@ -312,6 +315,7 @@
       padding: var(--cell-spacing);
       height: 100%;
       background: var(--cell-background);
+      border-radius: var(--radius-3);
     }
   </style>
   <slot></slot>
@@ -319,6 +323,7 @@
 
 
     <d-tasks>
+      
         <template shadowrootmode="open">
   <style>
     :host {
@@ -617,14 +622,12 @@
 </d-dashboard>
    </main>
    <nav slot="sidebar">
-    <h1 class="sidebar-title">Dashboard</h1>
 
     <d-menu role="list">
         <template shadowrootmode="open">
   <style>
     :host {
-      display: flex;
-      flex-direction: column;
+      display: block;
     }
   </style>
   <slot></slot>
@@ -635,30 +638,36 @@
             <template shadowrootmode="open">
   <style>
     :host {
+      --spacing-inline: var(--size-4);
+      --spacing-gap: var(--size-3);
+
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 1em;
+      gap: var(--spacing-gap);
+      padding: var(--spacing-inline);
+      font-weight: bold;
+      width: 100%;
       cursor: pointer;
-    }
-
-    :host(:hover) {
-      background-color: var(--color-orange-web);
-    }
-
-    ::slotted(a) {
-      text-decoration: none;
-    }
-
-    ::slotted(d-icon) {
-      --icon-size: 1.5em;
-      margin-top: 0.5em;
     }
 
     slot {
       display: block;
     }
 
+    ::slotted(d-icon) {
+      --icon-size: 1.5em;
+      margin-top: 0.5em;
+    }
+    :host(:hover) {
+      background: var(--color-orange-web);
+    }
+
+    ::slotted(a) {
+      color: inherit;
+      text-decoration: none;
+      padding-block: var(--spacing-gap);
+    }
     slot:not([name]) {
       flex-grow: 1;
     }
@@ -686,30 +695,36 @@
             <template shadowrootmode="open">
   <style>
     :host {
+      --spacing-inline: var(--size-4);
+      --spacing-gap: var(--size-3);
+
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 1em;
+      gap: var(--spacing-gap);
+      padding: var(--spacing-inline);
+      font-weight: bold;
+      width: 100%;
       cursor: pointer;
-    }
-
-    :host(:hover) {
-      background-color: var(--color-orange-web);
-    }
-
-    ::slotted(a) {
-      text-decoration: none;
-    }
-
-    ::slotted(d-icon) {
-      --icon-size: 1.5em;
-      margin-top: 0.5em;
     }
 
     slot {
       display: block;
     }
 
+    ::slotted(d-icon) {
+      --icon-size: 1.5em;
+      margin-top: 0.5em;
+    }
+    :host(:hover) {
+      background: var(--color-orange-web);
+    }
+
+    ::slotted(a) {
+      color: inherit;
+      text-decoration: none;
+      padding-block: var(--spacing-gap);
+    }
     slot:not([name]) {
       flex-grow: 1;
     }
@@ -737,30 +752,36 @@
             <template shadowrootmode="open">
   <style>
     :host {
+      --spacing-inline: var(--size-4);
+      --spacing-gap: var(--size-3);
+
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 1em;
+      gap: var(--spacing-gap);
+      padding: var(--spacing-inline);
+      font-weight: bold;
+      width: 100%;
       cursor: pointer;
-    }
-
-    :host(:hover) {
-      background-color: var(--color-orange-web);
-    }
-
-    ::slotted(a) {
-      text-decoration: none;
-    }
-
-    ::slotted(d-icon) {
-      --icon-size: 1.5em;
-      margin-top: 0.5em;
     }
 
     slot {
       display: block;
     }
 
+    ::slotted(d-icon) {
+      --icon-size: 1.5em;
+      margin-top: 0.5em;
+    }
+    :host(:hover) {
+      background: var(--color-orange-web);
+    }
+
+    ::slotted(a) {
+      color: inherit;
+      text-decoration: none;
+      padding-block: var(--spacing-gap);
+    }
     slot:not([name]) {
       flex-grow: 1;
     }
@@ -788,30 +809,36 @@
             <template shadowrootmode="open">
   <style>
     :host {
+      --spacing-inline: var(--size-4);
+      --spacing-gap: var(--size-3);
+
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 1em;
+      gap: var(--spacing-gap);
+      padding: var(--spacing-inline);
+      font-weight: bold;
+      width: 100%;
       cursor: pointer;
-    }
-
-    :host(:hover) {
-      background-color: var(--color-orange-web);
-    }
-
-    ::slotted(a) {
-      text-decoration: none;
-    }
-
-    ::slotted(d-icon) {
-      --icon-size: 1.5em;
-      margin-top: 0.5em;
     }
 
     slot {
       display: block;
     }
 
+    ::slotted(d-icon) {
+      --icon-size: 1.5em;
+      margin-top: 0.5em;
+    }
+    :host(:hover) {
+      background: var(--color-orange-web);
+    }
+
+    ::slotted(a) {
+      color: inherit;
+      text-decoration: none;
+      padding-block: var(--spacing-gap);
+    }
     slot:not([name]) {
       flex-grow: 1;
     }
