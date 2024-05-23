@@ -2,6 +2,7 @@ nav[slot="sidebar"] {
     display: flex;
     flex-direction: column;
     height: 100%;
+
 }
 
 nav[slot="sidebar"] d-menu-item {

@@ -1,5 +1,5 @@
 :host {
-    --main-spacing-desktop: calc(var(--size-7) + var(--size-1));
+    --main-spacing-desktop: calc(var(--size-7) + var(--size-5));
     --main-spacing-mobile: var(--size-5);
     --interior-spacing-desktop: var(--size-3);
     --interior-spacing-mobile: var(--size-2);
