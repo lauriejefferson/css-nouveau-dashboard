@@ -4,56 +4,61 @@
 :root {
 
     /* Base Design Tokens */
-    --font-sans: "Raleway", sans-serif;
+
     /* Overwrites Open Props font */
+    --font-sans: "Raleway", sans-serif;
+
     --color-jet: #2d2d2d;
     --color-oxford-blue: #14213d;
     --color-orange-web: #fca311;
     --color-platinum: #e5e5e5;
     --color-malachite: #17DF43;
+    --color-timberwolf: #d7d7d7;
+    --color-green: rgb(22, 220, 22);
     --color-blue: blue;
     --color-red: red;
     --color-gray: gray;
     --color-white: white;
-    --color-screamin-green: #A8F67A;
+    /* --color-screamin-green: #A8F67A;
     --color-electric-blue: #7CE9F0;
-    --color-sandy-brown: #FCAC4F;
-    --color-timberwolf: #d7d7d7;
-    --color-green: rgb(22, 220, 22);
+    --color-sandy-brown: #FCAC4F; */
+
 
 
     /* Semantic Design Tokens */
     --body-font: var(--font-sans);
     --body-background: var(--color-platinum);
     --font-scale: 105%;
+    --cell-background: var(--color-white);
+    --cell-spacing: var(--size-3);
+    --accent-color: var(--color-orange-web);
+    --navbar-background: var(--color-white);
     --sidebar-background: var(--color-oxford-blue);
-    --sidebar-selected-background: var(--color-orange-web);
+    --sidebar-color: var(--color-white);
     --title-color: var(--color-jet);
     --title-font-size: var(--font-size-5);
     --canvas-background: var(--color-platinum);
     --surface-background: var(--stone-0);
-    --accent-color: var(--color-orange-web);
     --sales-background: var(--color-oxford-blue);
     --sales-color: var(--color-platinum);
     --sales-radius: var(--radius-3);
-    --subscription-background: var(--color-white; );
+    --subscription-background: var(--color-white);
     --subscriptions-color: var(--color-jet);
     --tasks-background: var(--color-white);
     --tasks-checked-color: var(--color-malachite);
     --tasks-unchecked-color: var(--color-gray);
     --fluid-sectioning: var(--size-fluid-2);
+    --new-customers-background: var(--color-white);
     --customer-approved-color: var(--color-malachite);
     --customer-pending-color: var(--color-blue);
     --customer-rejected-color: var(--color-red);
-    --new-customers-background: var(--color-white);
-    --subscription-new-color: var(--color-screamin-green);
+    /* --subscription-new-color: var(--color-screamin-green);
     --subscription-returning-color: var(--color-electric-blue);
-    --subscription-unsubscribed-color: var(--color-sandy-brown);
-    --sidebar-color: var(--color-white);
+    --subscription-unsubscribed-color: var(--color-sandy-brown); */
+
     --search-background: var(--color-timberwolf);
     --arrow-up: var(--color-green);
     --arrow-down: var(--color-red);
-    --navbar-background: var(--color-white);
-    --cell-background: var(--color-white);
-    --cell-spacing: var(--size-3);
+
+
 }

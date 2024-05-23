@@ -9,6 +9,9 @@
     --main-spacing: var(--main-spacing-desktop);
     --interior-spacing: var(--interior-spacing-desktop);
 
+    --grid-gap: var(--size-3);
+    --flex-gap: var(--size-3);
+
     display: grid;
     grid-template-columns: minmax(var(--min-sidebar-size), 1fr) 4fr;
     grid-template-rows: min-content 1fr min-content;
@@ -55,7 +58,7 @@ slot[name="title"] {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 1em;
+    gap: var(--flex-gap);
 }
 
 slot[name="footer"] {

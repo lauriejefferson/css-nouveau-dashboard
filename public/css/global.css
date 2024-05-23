@@ -5,6 +5,11 @@
     box-sizing: border-box;
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    font: inherit;
+}
 
 /* Prevent font size inflation */
 html {
@@ -83,4 +88,8 @@ a {
 
 a:hover {
     text-decoration-color: var(--color-orange-web);
+}
+
+p {
+    text-wrap: pretty;
 }

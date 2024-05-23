@@ -1,12 +1,9 @@
 <d-dashboard-cell>
     <d-cell>
-        <h2>Subscriptions</h2>
         {% component_dsd "d-cell" %}
-
+        <h2>Subscriptions</h2>
     <d-chart type="pie" style="max-height: 450px">
         {% component_dsd "d-chart" %}
-  
-
     <script>
         document.currentScript.parentNode.addEventListener("request-config", e => {
             const callback = e.detail.callback
@@ -37,32 +34,47 @@
 <d-dashdboard-cell>
     
 <d-cell>
-    <h2>Tasks</h2>
     {% component_dsd "d-cell" %}
-
     <d-tasks>
-      
         {% component_dsd "d-tasks" %}
-        <d-task-item>
-            {%component_dsd "d-task-item"%}
-            <p slot="taskitem">Get Marketing Report</p>
-        </d-task-item>
-        <d-task-item>
-            {%component_dsd "d-task-item"%}
-            <p slot="taskitem">Get Sales Report</p>
-        </d-task-item>
-        <d-task-item>
-            {%component_dsd "d-task-item"%}
-            <p slot="taskitem">Mobile App Design</p>
-        </d-task-item>
-        <d-task-item>
-            {%component_dsd "d-task-item"%}
-            <p slot="taskitem">New Website Design</p>
-        </d-task-item>
-        <d-task-item>
-            {%component_dsd "d-task-item"%}
-            <p slot="taskitem">SEO Marketing</p>
-        </d-task-item>
+        <ul role="list">
+            <h2>Tasks</h2>
+            <d-task-item>
+                {%component_dsd "d-task-item"%}
+                <li role="listitem">
+                    <input type="checkbox" />
+                    <p slot="taskitem">Get Marketing Report</p>
+                </li>
+            </d-task-item>
+            <d-task-item>
+                {%component_dsd "d-task-item"%}
+                <li role="listitem">
+                     <input type="checkbox" />
+                     <p slot="taskitem">Get Sales Report</p>
+                </li>
+            </d-task-item>
+            <d-task-item>
+                {%component_dsd "d-task-item"%}
+                <li role="listitem">
+                    <input type="checkbox" />
+                    <p slot="taskitem">Mobile App Design</p>
+                </li>
+            </d-task-item>
+            <d-task-item>
+                {%component_dsd "d-task-item"%}
+                <li role="listitem">
+                    <input type="checkbox" />
+                    <p slot="taskitem">New Website Design</p>
+                </li>
+            </d-task-item>
+            <d-task-item>
+                {%component_dsd "d-task-item"%}
+                <li role="listitem">
+                    <input type="checkbox" />
+                    <p slot="taskitem">SEO Marketing</p>
+                </li>
+            </d-task-item>
+        </ul>
     </d-tasks>
 </d-cell>
 </d-dashdboard-cell>
