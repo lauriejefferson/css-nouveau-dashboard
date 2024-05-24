@@ -19,8 +19,14 @@
       padding: 0;
     }
 
-    ::slotted(input) {
-      width: 2em;
+    ::slotted(input[type='checkbox']) {
+      accent-color: coral;
+      width: 1.15em;
+      height: 1.15em;
+    }
+
+    ::slotted(input[type='checkbox']:checked) {
+      background: lime;
     }
   </style>
   <li role="listitem">

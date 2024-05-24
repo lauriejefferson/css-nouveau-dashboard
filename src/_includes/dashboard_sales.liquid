@@ -8,19 +8,38 @@
     {% component_dsd "d-card" %}
     <h1 slot="title">Total Sales</h1>
     <p slot="total">$500,000</p>
-    <div slot="stats">20%</div>
+    <div slot="stats"> 
+      <span>
+        <d-icon>
+            {% include "svgs/ArrowTrendingUp.svg"%}
+        </d-icon>
+      </span> 20%
+    </div>
 </d-card>
 <d-card>
     {% component_dsd "d-card" %}
     <h1 slot="title">Total Customers</h1>
     <p slot="total">160,000</p>
-    <div slot="stats">10%</div>
+    <div slot="stats">
+    <span>
+        <d-icon>
+            {% include "svgs/ArrowTrendingDown.svg"%}
+        </d-icon>
+    </span>
+        10%
+    </div>
 </d-card>
 <d-card>
     {% component_dsd "d-card" %}
     <h1 slot="title">Unsubscribes</h1>
     <p slot="total">250</p>
-    <div slot="stats">7%</div>
+    <div slot="stats">
+        <span>
+            <d-icon>
+                {% include "svgs/ArrowTrendingUp.svg"%}
+            </d-icon>
+        </span>7%
+    </div>
 </d-card>
 </d-cards>
 

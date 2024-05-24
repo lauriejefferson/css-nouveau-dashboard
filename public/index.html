@@ -87,7 +87,15 @@
 
     <h1 slot="title">Total Sales</h1>
     <p slot="total">$500,000</p>
-    <div slot="stats">20%</div>
+    <div slot="stats"> 
+      <span>
+        <d-icon>
+            <svg data-slot="icon" aria-hidden="true" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+        </d-icon>
+      </span> 20%
+    </div>
 </d-card>
 <d-card>
     <template shadowrootmode="open">
@@ -123,7 +131,16 @@
 
     <h1 slot="title">Total Customers</h1>
     <p slot="total">160,000</p>
-    <div slot="stats">10%</div>
+    <div slot="stats">
+    <span>
+        <d-icon>
+            <svg data-slot="icon" aria-hidden="true" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M2.25 6 9 12.75l4.286-4.286a11.948 11.948 0 0 1 4.306 6.43l.776 2.898m0 0 3.182-5.511m-3.182 5.51-5.511-3.181" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+        </d-icon>
+    </span>
+        10%
+    </div>
 </d-card>
 <d-card>
     <template shadowrootmode="open">
@@ -159,7 +176,15 @@
 
     <h1 slot="title">Unsubscribes</h1>
     <p slot="total">250</p>
-    <div slot="stats">7%</div>
+    <div slot="stats">
+        <span>
+            <d-icon>
+                <svg data-slot="icon" aria-hidden="true" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+            </d-icon>
+        </span>7%
+    </div>
 </d-card>
 </d-cards>
 
@@ -358,8 +383,14 @@
       padding: 0;
     }
 
-    ::slotted(input) {
-      width: 2em;
+    ::slotted(input[type='checkbox']) {
+      accent-color: coral;
+      width: 1.15em;
+      height: 1.15em;
+    }
+
+    ::slotted(input[type='checkbox']:checked) {
+      background: lime;
     }
   </style>
   <li role="listitem">
@@ -392,8 +423,14 @@
       padding: 0;
     }
 
-    ::slotted(input) {
-      width: 2em;
+    ::slotted(input[type='checkbox']) {
+      accent-color: coral;
+      width: 1.15em;
+      height: 1.15em;
+    }
+
+    ::slotted(input[type='checkbox']:checked) {
+      background: lime;
     }
   </style>
   <li role="listitem">
@@ -426,8 +463,14 @@
       padding: 0;
     }
 
-    ::slotted(input) {
-      width: 2em;
+    ::slotted(input[type='checkbox']) {
+      accent-color: coral;
+      width: 1.15em;
+      height: 1.15em;
+    }
+
+    ::slotted(input[type='checkbox']:checked) {
+      background: lime;
     }
   </style>
   <li role="listitem">
@@ -460,8 +503,14 @@
       padding: 0;
     }
 
-    ::slotted(input) {
-      width: 2em;
+    ::slotted(input[type='checkbox']) {
+      accent-color: coral;
+      width: 1.15em;
+      height: 1.15em;
+    }
+
+    ::slotted(input[type='checkbox']:checked) {
+      background: lime;
     }
   </style>
   <li role="listitem">
@@ -494,8 +543,14 @@
       padding: 0;
     }
 
-    ::slotted(input) {
-      width: 2em;
+    ::slotted(input[type='checkbox']) {
+      accent-color: coral;
+      width: 1.15em;
+      height: 1.15em;
+    }
+
+    ::slotted(input[type='checkbox']:checked) {
+      background: lime;
     }
   </style>
   <li role="listitem">
