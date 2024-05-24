@@ -322,12 +322,19 @@
   <style>
     :host {
       display: block;
+      margin: 0;
+      padding: 1.5em;
+    }
+
+    ul {
+      list-style-type: none;
     }
   </style>
-  <slot></slot>
+  <ul role="list">
+    <slot></slot>
+  </ul>
 </template>
 
-        <ul role="list">
             <h2>Tasks</h2>
             <d-task-item>
                 <template shadowrootmode="open">
@@ -335,24 +342,33 @@
     :host {
       display: flex;
       justify-content: space-between;
-      gap: 0.25em;
-      margin-top: 1em;
-    }
-
-    ::slotted(li) {
-      display: flex;
-      justify-content: center;
       align-items: center;
       gap: var(--flex-gap);
+      margin-top: 1.5em;
+      padding: 0;
+    }
+    li {
+      display: flex;
+      place-content: center;
+      gap: var(--flex-gap);
+    }
+
+    ::slotted(*) {
+      margin: 0;
+      padding: 0;
+    }
+
+    ::slotted(input) {
+      width: 2em;
     }
   </style>
-  <slot></slot>
+  <li role="listitem">
+    <slot></slot>
+  </li>
 </template>
 
-                <li role="listitem">
-                    <input type="checkbox" />
-                    <p slot="taskitem">Get Marketing Report</p>
-                </li>
+                <input type="checkbox" />
+                <p >Get Marketing Report</p>
             </d-task-item>
             <d-task-item>
                 <template shadowrootmode="open">
@@ -360,24 +376,33 @@
     :host {
       display: flex;
       justify-content: space-between;
-      gap: 0.25em;
-      margin-top: 1em;
-    }
-
-    ::slotted(li) {
-      display: flex;
-      justify-content: center;
       align-items: center;
       gap: var(--flex-gap);
+      margin-top: 1.5em;
+      padding: 0;
+    }
+    li {
+      display: flex;
+      place-content: center;
+      gap: var(--flex-gap);
+    }
+
+    ::slotted(*) {
+      margin: 0;
+      padding: 0;
+    }
+
+    ::slotted(input) {
+      width: 2em;
     }
   </style>
-  <slot></slot>
+  <li role="listitem">
+    <slot></slot>
+  </li>
 </template>
 
-                <li role="listitem">
-                     <input type="checkbox" />
-                     <p slot="taskitem">Get Sales Report</p>
-                </li>
+                <input  type="checkbox" />
+                <p >Get Sales Report</p>
             </d-task-item>
             <d-task-item>
                 <template shadowrootmode="open">
@@ -385,24 +410,33 @@
     :host {
       display: flex;
       justify-content: space-between;
-      gap: 0.25em;
-      margin-top: 1em;
-    }
-
-    ::slotted(li) {
-      display: flex;
-      justify-content: center;
       align-items: center;
       gap: var(--flex-gap);
+      margin-top: 1.5em;
+      padding: 0;
+    }
+    li {
+      display: flex;
+      place-content: center;
+      gap: var(--flex-gap);
+    }
+
+    ::slotted(*) {
+      margin: 0;
+      padding: 0;
+    }
+
+    ::slotted(input) {
+      width: 2em;
     }
   </style>
-  <slot></slot>
+  <li role="listitem">
+    <slot></slot>
+  </li>
 </template>
 
-                <li role="listitem">
-                    <input type="checkbox" />
-                    <p slot="taskitem">Mobile App Design</p>
-                </li>
+                <input  type="checkbox" />
+                <p>Mobile App Design</p>
             </d-task-item>
             <d-task-item>
                 <template shadowrootmode="open">
@@ -410,24 +444,33 @@
     :host {
       display: flex;
       justify-content: space-between;
-      gap: 0.25em;
-      margin-top: 1em;
-    }
-
-    ::slotted(li) {
-      display: flex;
-      justify-content: center;
       align-items: center;
       gap: var(--flex-gap);
+      margin-top: 1.5em;
+      padding: 0;
+    }
+    li {
+      display: flex;
+      place-content: center;
+      gap: var(--flex-gap);
+    }
+
+    ::slotted(*) {
+      margin: 0;
+      padding: 0;
+    }
+
+    ::slotted(input) {
+      width: 2em;
     }
   </style>
-  <slot></slot>
+  <li role="listitem">
+    <slot></slot>
+  </li>
 </template>
 
-                <li role="listitem">
-                    <input type="checkbox" />
-                    <p slot="taskitem">New Website Design</p>
-                </li>
+                <input  type="checkbox" />
+                <p>New Website Design</p>
             </d-task-item>
             <d-task-item>
                 <template shadowrootmode="open">
@@ -435,26 +478,34 @@
     :host {
       display: flex;
       justify-content: space-between;
-      gap: 0.25em;
-      margin-top: 1em;
-    }
-
-    ::slotted(li) {
-      display: flex;
-      justify-content: center;
       align-items: center;
       gap: var(--flex-gap);
+      margin-top: 1.5em;
+      padding: 0;
+    }
+    li {
+      display: flex;
+      place-content: center;
+      gap: var(--flex-gap);
+    }
+
+    ::slotted(*) {
+      margin: 0;
+      padding: 0;
+    }
+
+    ::slotted(input) {
+      width: 2em;
     }
   </style>
-  <slot></slot>
+  <li role="listitem">
+    <slot></slot>
+  </li>
 </template>
 
-                <li role="listitem">
-                    <input type="checkbox" />
-                    <p slot="taskitem">SEO Marketing</p>
-                </li>
+                <input  type="checkbox" />
+                <p>SEO Marketing</p>
             </d-task-item>
-        </ul>
     </d-tasks>
 </d-cell>
 </d-dashdboard-cell>

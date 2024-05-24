@@ -2,7 +2,15 @@
   <style>
     :host {
       display: block;
+      margin: 0;
+      padding: 1.5em;
+    }
+
+    ul {
+      list-style-type: none;
     }
   </style>
-  <slot></slot>
+  <ul role="list">
+    <slot></slot>
+  </ul>
 </template>
